@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../home_page/home_page_widget.dart';
+import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -206,7 +207,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     await Navigator.pushAndRemoveUntil(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => HomePageWidget(),
+                                        builder: (context) =>
+                                            NavBarPage(initialPage: 'HomePage'),
                                       ),
                                       (r) => false,
                                     );
@@ -332,7 +334,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          HomePageWidget(),
+                                                          NavBarPage(
+                                                              initialPage:
+                                                                  'HomePage'),
                                                     ),
                                                     (r) => false,
                                                   );
@@ -398,8 +402,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       await Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) =>
-                                              HomePageWidget(),
+                                          builder: (context) => NavBarPage(
+                                              initialPage: 'HomePage'),
                                         ),
                                         (r) => false,
                                       );

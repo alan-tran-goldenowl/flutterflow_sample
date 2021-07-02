@@ -2,7 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
 import 'package:sample/login_page/login_page_widget.dart';
-import 'package:sample/home_page/home_page_widget.dart';
+import 'flutter_flow/flutter_flow_theme.dart';
+import 'home_page/home_page_widget.dart';
+import 'account_page/account_page_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,8 +41,67 @@ class _MyAppState extends State<MyApp> {
               ),
             )
           : currentUser.loggedIn
-              ? HomePageWidget()
+              ? NavBarPage()
               : LoginPageWidget(),
+    );
+  }
+}
+
+class NavBarPage extends StatefulWidget {
+  NavBarPage({Key key, this.initialPage}) : super(key: key);
+
+  final String initialPage;
+
+  @override
+  _NavBarPageState createState() => _NavBarPageState();
+}
+
+/// This is the private State class that goes with NavBarPage.
+class _NavBarPageState extends State<NavBarPage> {
+  String _currentPage = 'HomePage';
+
+  @override
+  void initState() {
+    super.initState();
+    _currentPage = widget.initialPage ?? _currentPage;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final tabs = {
+      'HomePage': HomePageWidget(),
+      'AccountPage': AccountPageWidget(),
+    };
+    return Scaffold(
+      body: tabs[_currentPage],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              color: Color(0xFF9E9E9E),
+              size: 24,
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.account_box_outlined,
+              color: Color(0xFF9E9E9E),
+              size: 24,
+            ),
+            label: 'Account',
+          )
+        ],
+        backgroundColor: Colors.white,
+        currentIndex: tabs.keys.toList().indexOf(_currentPage),
+        selectedItemColor: FlutterFlowTheme.primaryColor,
+        unselectedItemColor: Color(0x8A000000),
+        onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        type: BottomNavigationBarType.fixed,
+      ),
     );
   }
 }
