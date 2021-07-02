@@ -86,7 +86,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Image.network(
-                        'https://picsum.photos/seed/802/600',
+                        listViewExampleObjectRecord.imageUrl,
                         width: double.infinity,
                         fit: BoxFit.fitWidth,
                       ),
