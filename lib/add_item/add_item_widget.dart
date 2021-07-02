@@ -1,9 +1,6 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -147,19 +144,8 @@ class _AddItemWidgetState extends State<AddItemWidget> {
               Padding(
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: FFButtonWidget(
-                  onPressed: () async {
-                    if (!formKey.currentState.validate()) {
-                      return;
-                    }
-                    final exampleObjectsRecordData =
-                        createExampleObjectsRecordData(
-                      title: textController2.text,
-                      createAt: getCurrentTimestamp,
-                      imageUrl: textController1.text,
-                    );
-                    await ExampleObjectsRecord.collection
-                        .doc()
-                        .set(exampleObjectsRecordData);
+                  onPressed: () {
+                    print('Button pressed ...');
                   },
                   text: 'Add',
                   options: FFButtonOptions(

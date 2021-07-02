@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
-import 'schema/example_objects_record.dart';
+import 'schema/example_object_record.dart';
 import 'schema/serializers.dart';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -13,7 +13,7 @@ export 'schema/index.dart';
 export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
-export 'schema/example_objects_record.dart';
+export 'schema/example_object_record.dart';
 
 Stream<List<UsersRecord>> queryUsersRecord(
         {Query Function(Query) queryBuilder,
@@ -22,12 +22,12 @@ Stream<List<UsersRecord>> queryUsersRecord(
     queryCollection(UsersRecord.collection, UsersRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
-Stream<List<ExampleObjectsRecord>> queryExampleObjectsRecord(
+Stream<List<ExampleObjectRecord>> queryExampleObjectRecord(
         {Query Function(Query) queryBuilder,
         int limit = -1,
         bool singleRecord = false}) =>
     queryCollection(
-        ExampleObjectsRecord.collection, ExampleObjectsRecord.serializer,
+        ExampleObjectRecord.collection, ExampleObjectRecord.serializer,
         queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
 
 Stream<List<T>> queryCollection<T>(
